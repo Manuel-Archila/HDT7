@@ -19,8 +19,7 @@ public class NaturalComparator<E extends Comparable<E>> implements Comparator<E>
      * @param b objeto con el que se compara si es igual
      * @return Verdadero si son iguales.
      */
-    public boolean equals(Object b)
-    {
+    public boolean equals(Object b) {
         return (b != null) && (b instanceof NaturalComparator);
     }
 }

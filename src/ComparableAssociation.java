@@ -18,8 +18,7 @@ public class ComparableAssociation<K extends Comparable<K>,V> extends Associatio
      * @param key La llave de la asociacion
      * @param value El valor de la asociacion
      */
-    public ComparableAssociation(K key, V value)
-    {
+    public ComparableAssociation(K key, V value) {
         super(key,value);
     }
 

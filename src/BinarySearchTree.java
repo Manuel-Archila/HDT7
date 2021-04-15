@@ -280,7 +280,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return s.toString();
     }
 
-    public Iterator<E> iterator() {
+    public InOrderIterator<E> iterator() {
 
         return root.iterator();
     }

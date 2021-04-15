@@ -203,7 +203,7 @@ public class BinaryTree<E>
         return 1 + parent.depth();
     }
 
-    public Iterator<E> iterator(){
+    public InOrderIterator<E> iterator(){
         return new InOrderIterator<>(this);
     }
 
