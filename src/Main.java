@@ -55,19 +55,100 @@ public class Main{
         }
         System.out.println("\nIngrese la ruta del archivo que desea leer");
         String ruta = scan.nextLine();
+        String oracion = "";
         try {
             File myObj = new File(ruta);
             Scanner myReader = new Scanner(myObj);
             while(myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                System.out.println(data);
-
-
+                oracion = myReader.nextLine();
             }
             myReader.close();
         } catch (Exception e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+        }
+        System.out.println("En que idioma esta el archivo leido");
+        System.out.println("1. Ingles\n2.Espanol\n3.Frances");
+        int idiomaorigen = 0;
+        while(true){
+            try{
+                idiomaorigen = scan.nextInt();
+                if(idiomaorigen<4 && idiomaorigen>0){
+                    break;
+                }else{
+                    System.out.println("Ingrese una opcion valida");
+                }
+            }catch(Exception e){
+                System.out.println("Ingrese una opcion numerica");
+            }
+        }
+        System.out.println("A que idioma desea traducirlo");
+        if(idiomaorigen == 1){
+            System.out.println("1.Espanol\n2.Frances");
+            int idioma = 0;
+            while(true){
+                try{
+                    idioma = scan.nextInt();
+                    if(idioma<3 && idioma>0){
+                        break;
+                    }else{
+                        System.out.println("Ingrese una opcion valida");
+                    }
+                }catch(Exception e){
+                    System.out.println("Ingrese una opcion numerica");
+                }
+            }
+            //Espanol
+            if(idioma==1){
+                System.out.println("eu");
+             //Frances
+            }else{
+                System.out.println("eu");
+            }
+        }else if(idiomaorigen == 2){
+            System.out.println("1. Ingles\n2.Frances");
+            int idioma = 0;
+            while(true){
+                try{
+                    idioma = scan.nextInt();
+                    if(idioma<3 && idioma>0){
+                        break;
+                    }else{
+                        System.out.println("Ingrese una opcion valida");
+                    }
+                }catch(Exception e){
+                    System.out.println("Ingrese una opcion numerica");
+                }
+            }
+            //Ingles
+            if(idioma==1){
+                System.out.println("eu");
+             //Frances
+            }else{
+                System.out.println("eu");
+            }
+        }else{
+            System.out.println("1. Ingles\n2.Espanol");
+            int idioma = 0;
+            while(true){
+                try{
+                    idioma = scan.nextInt();
+                    if(idioma<3 && idioma>0){
+                        break;
+                    }else{
+                        System.out.println("Ingrese una opcion valida");
+                    }
+                }catch(Exception e){
+                    System.out.println("Ingrese una opcion numerica");
+                }
+            }
+            //Ingles
+            if(idioma==1){
+                System.out.println("eu");
+             //Espanol
+            }else{
+                System.out.println("eu");
+            }
         }
 
     }
