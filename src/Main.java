@@ -151,7 +151,7 @@ public class Main{
                 sentence += ".";
             }
         }else if(idiomaorigen == 2){
-            System.out.println("1. Ingles\n2.Frances");
+            System.out.println("1.Ingles\n2.Frances");
             int idioma = 0;
             while(true){
                 try{
@@ -207,7 +207,7 @@ public class Main{
                 }
             }
         }else{
-            System.out.println("1. Ingles\n2.Espanol");
+            System.out.println("1.Ingles\n2.Espanol");
             int idioma = 0;
             while(true){
                 try{
@@ -262,8 +262,6 @@ public class Main{
                 }
             }
         }
-
         System.out.println(sentence);
-
     }
 }
