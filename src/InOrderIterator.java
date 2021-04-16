@@ -22,6 +22,7 @@ public class InOrderIterator<E> implements Iterator<E>{
     }
 
     public boolean hasNext(){
+
         return !todo.isEmpty();
     }
 

@@ -67,8 +67,16 @@ public class Main{
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        Scanner separador = new Scanner(oracion);
+        ArrayList<String> palabrassent = new ArrayList<>();
+        while(separador.hasNext()){
+            String tempy = separador.next();
+            palabrassent.add(tempy);
+        }
+
+        String sentence = "";
         System.out.println("En que idioma esta el archivo leido");
-        System.out.println("1. Ingles\n2.Espanol\n3.Frances");
+        System.out.println("1.Ingles\n2.Espanol\n3.Frances");
         int idiomaorigen = 0;
         while(true){
             try{
@@ -80,6 +88,7 @@ public class Main{
                 }
             }catch(Exception e){
                 System.out.println("Ingrese una opcion numerica");
+                scan.nextLine();
             }
         }
         System.out.println("A que idioma desea traducirlo");
@@ -96,11 +105,28 @@ public class Main{
                     }
                 }catch(Exception e){
                     System.out.println("Ingrese una opcion numerica");
+                    scan.nextLine();
                 }
             }
             //Espanol
             if(idioma==1){
-                System.out.println("eu");
+                //InOrderIterator<ComparableAssociation<String, String[]>> ordenadoigles = ingles.iterator();
+                for(int i = 0; i< palabrassent.size(); i++){
+                    System.out.println(ingles.size());
+                    for(int j = 0; j<ingles.size(); j++){
+                        InOrderIterator<ComparableAssociation<String, String[]>> ordenadoigles = ingles.iterator();
+                        ComparableAssociation<String, String[]> temporal = ordenadoigles.next();
+                        String key  = temporal.getKey();
+                        String[] pals = temporal.getValue();
+                        String palespanol = pals[0];
+                        System.out.println(palabrassent.get(i));
+                        if(palabrassent.get(i).compareTo(key) == 0){
+                            sentence += palespanol;
+                        }else{
+                            sentence += " *" + palabrassent.get(i) +"* ";
+                        }
+                    }
+                }
              //Frances
             }else{
                 System.out.println("eu");
@@ -118,6 +144,7 @@ public class Main{
                     }
                 }catch(Exception e){
                     System.out.println("Ingrese una opcion numerica");
+                    scan.nextLine();
                 }
             }
             //Ingles
@@ -140,6 +167,7 @@ public class Main{
                     }
                 }catch(Exception e){
                     System.out.println("Ingrese una opcion numerica");
+                    scan.nextLine();
                 }
             }
             //Ingles
@@ -150,6 +178,8 @@ public class Main{
                 System.out.println("eu");
             }
         }
+
+        System.out.println(sentence);
 
     }
 }
