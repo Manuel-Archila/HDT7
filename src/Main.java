@@ -71,7 +71,8 @@ public class Main{
         ArrayList<String> palabrassent = new ArrayList<>();
         while(separador.hasNext()){
             String tempy = separador.next();
-            palabrassent.add(tempy);
+            String tempo = tempy.replace(".","");
+            palabrassent.add(tempo);
         }
 
         String sentence = "";
@@ -110,26 +111,44 @@ public class Main{
             }
             //Espanol
             if(idioma==1){
-                //InOrderIterator<ComparableAssociation<String, String[]>> ordenadoigles = ingles.iterator();
                 for(int i = 0; i< palabrassent.size(); i++){
-                    System.out.println(ingles.size());
+                    InOrderIterator<ComparableAssociation<String, String[]>> ordenadoigles = ingles.iterator();
+                    boolean existoso = false;
                     for(int j = 0; j<ingles.size(); j++){
-                        InOrderIterator<ComparableAssociation<String, String[]>> ordenadoigles = ingles.iterator();
                         ComparableAssociation<String, String[]> temporal = ordenadoigles.next();
                         String key  = temporal.getKey();
                         String[] pals = temporal.getValue();
                         String palespanol = pals[0];
-                        System.out.println(palabrassent.get(i));
                         if(palabrassent.get(i).compareTo(key) == 0){
-                            sentence += palespanol;
-                        }else{
-                            sentence += " *" + palabrassent.get(i) +"* ";
+                            existoso = true;
+                            sentence += " " + palespanol;
                         }
                     }
+                    if(!existoso) {
+                        sentence += " *" + palabrassent.get(i) + "*";
+                    }
                 }
+                sentence += ".";
              //Frances
             }else{
-                System.out.println("eu");
+                for(int i = 0; i< palabrassent.size(); i++){
+                    InOrderIterator<ComparableAssociation<String, String[]>> ordenadoigles = ingles.iterator();
+                    boolean existoso = false;
+                    for(int j = 0; j<ingles.size(); j++){
+                        ComparableAssociation<String, String[]> temporal = ordenadoigles.next();
+                        String key  = temporal.getKey();
+                        String[] pals = temporal.getValue();
+                        String palfrances = pals[1];
+                        if(palabrassent.get(i).compareTo(key) == 0){
+                            existoso = true;
+                            sentence += " " + palfrances;
+                        }
+                    }
+                    if(!existoso) {
+                        sentence += " *" + palabrassent.get(i) + "*";
+                    }
+                }
+                sentence += ".";
             }
         }else if(idiomaorigen == 2){
             System.out.println("1. Ingles\n2.Frances");
@@ -149,10 +168,43 @@ public class Main{
             }
             //Ingles
             if(idioma==1){
-                System.out.println("eu");
+                for(int i = 0; i< palabrassent.size(); i++){
+                    InOrderIterator<ComparableAssociation<String, String[]>> ordenadoesp = espanol.iterator();
+                    boolean existoso = false;
+                    for(int j = 0; j<espanol.size(); j++){
+                        ComparableAssociation<String, String[]> temporal = ordenadoesp.next();
+                        String key  = temporal.getKey();
+                        String[] pals = temporal.getValue();
+                        String palingles = pals[0];
+                        if(palabrassent.get(i).compareTo(key) == 0){
+                            existoso = true;
+                            sentence += " " + palingles;
+                        }
+                    }
+                    if(!existoso) {
+                        sentence += " *" + palabrassent.get(i) + "*";
+                    }
+                }
+                sentence += ".";
              //Frances
             }else{
-                System.out.println("eu");
+                for(int i = 0; i< palabrassent.size(); i++){
+                    InOrderIterator<ComparableAssociation<String, String[]>> ordenadoesp = espanol.iterator();
+                    boolean existoso = false;
+                    for(int j = 0; j<espanol.size(); j++){
+                        ComparableAssociation<String, String[]> temporal = ordenadoesp.next();
+                        String key  = temporal.getKey();
+                        String[] pals = temporal.getValue();
+                        String palfran = pals[1];
+                        if(palabrassent.get(i).compareTo(key) == 0){
+                            existoso = true;
+                            sentence += " " + palfran;
+                        }
+                    }
+                    if(!existoso) {
+                        sentence += " *" + palabrassent.get(i) + "*";
+                    }
+                }
             }
         }else{
             System.out.println("1. Ingles\n2.Espanol");
@@ -172,10 +224,42 @@ public class Main{
             }
             //Ingles
             if(idioma==1){
-                System.out.println("eu");
+                for(int i = 0; i< palabrassent.size(); i++){
+                    InOrderIterator<ComparableAssociation<String, String[]>> ordenadofran = frances.iterator();
+                    boolean existoso = false;
+                    for(int j = 0; j<espanol.size(); j++){
+                        ComparableAssociation<String, String[]> temporal = ordenadofran.next();
+                        String key  = temporal.getKey();
+                        String[] pals = temporal.getValue();
+                        String paling = pals[0];
+                        if(palabrassent.get(i).compareTo(key) == 0){
+                            existoso = true;
+                            sentence += " " + paling;
+                        }
+                    }
+                    if(!existoso) {
+                        sentence += " *" + palabrassent.get(i) + "*";
+                    }
+                }
              //Espanol
             }else{
-                System.out.println("eu");
+                for(int i = 0; i< palabrassent.size(); i++) {
+                    InOrderIterator<ComparableAssociation<String, String[]>> ordenadofran = frances.iterator();
+                    boolean existoso = false;
+                    for (int j = 0; j < espanol.size(); j++) {
+                        ComparableAssociation<String, String[]> temporal = ordenadofran.next();
+                        String key = temporal.getKey();
+                        String[] pals = temporal.getValue();
+                        String palesp = pals[1];
+                        if (palabrassent.get(i).compareTo(key) == 0) {
+                            existoso = true;
+                            sentence += " " + palesp;
+                        }
+                    }
+                    if (!existoso) {
+                        sentence += " *" + palabrassent.get(i) + "*";
+                    }
+                }
             }
         }
 
